@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blood Bank Backend Test</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .test { margin: 10px 0; padding: 10px; border: 1px solid #ccc; }
+        .success { background-color: #d4edda; border-color: #c3e6cb; }
+        .error { background-color: #f8d7da; border-color: #f5c6cb; }
+        button { padding: 10px 20px; margin: 5px; background: #007bff; color: white; border: none; cursor: pointer; }
+        button:hover { background: #0056b3; }
+        pre { background: #f8f9fa; padding: 10px; border-radius: 4px; }
+    </style>
+</head>
+<body>
+    <h1>🩸 Blood Bank Backend Test</h1>
+    
+    <div class="test">
+        <h3>Test 1: Health Check</h3>
+        <button onclick="testHealth()">Test Health Endpoint</button>
+        <div id="health-result"></div>
+    </div>
+    
+    <div class="test">
+        <h3>Test 2: User Signup</h3>
+        <button onclick="testSignup()">Test Signup Endpoint</button>
+        <div id="signup-result"></div>
+    </div>
+    
+    <div class="test">
+        <h3>Test 3: User Login</h3>
+        <button onclick="testLogin()">Test Login Endpoint</button>
+        <div id="login-result"></div>
+    </div>
+
+    <script>
+        const API_BASE = 'http://localhost:5000';
+        
+        async function testHealth() {
+            const resultDiv = document.getElementById('health-result');
+            try {
+                const response = await fetch(`${API_BASE}/health`);
+                const data = await response.json();
+                
+                resultDiv.innerHTML = `
+                    <div class="success">
+                        <strong>✅ Health Check Passed!</strong>
+                        <pre>${JSON.stringify(data, null, 2)}</pre>
+                    </div>
+                `;
+            } catch (error) {
+                resultDiv.innerHTML = `
+                    <div class="error">
+                        <strong>❌ Health Check Failed!</strong>
+                        <p>Error: ${error.message}</p>
+                        <p>Make sure the backend server is running on port 5000</p>
+                    </div>
+                `;
+            }
+        }
+        
+        async function testSignup() {
+            const resultDiv = document.getElementById('signup-result');
+            try {
+                const signupData = {
+                    username: 'testuser' + Date.now(),
+                    email: 'test' + Date.now() + '@example.com',
+                    password: 'password123',
+                    full_name: 'Test User',
+                    phone: '+1234567890',
+                    role: 'staff'
+                };
+                
+                const response = await fetch(`${API_BASE}/api/users/signup`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(signupData)
+                });
+                
+                const data = await response.json();
+                
+                if (data.success) {
+                    resultDiv.innerHTML = `
+                        <div class="success">
+                            <strong>✅ Signup Test Passed!</strong>
+                            <pre>${JSON.stringify(data, null, 2)}</pre>
+                        </div>
+                    `;
+                } else {
+                    resultDiv.innerHTML = `
+                        <div class="error">
+                            <strong>❌ Signup Test Failed!</strong>
+                            <pre>${JSON.stringify(data, null, 2)}</pre>
+                        </div>
+                    `;
+                }
+            } catch (error) {
+                resultDiv.innerHTML = `
+                    <div class="error">
+                        <strong>❌ Signup Test Failed!</strong>
+                        <p>Error: ${error.message}</p>
+                        <p>Check if backend is running and database is connected</p>
+                    </div>
+                `;
+            }
+        }
+        
+        async function testLogin() {
+            const resultDiv = document.getElementById('login-result');
+            try {
+                const loginData = {
+                    username: 'admin',
+                    password: 'admin123'
+                };
+                
+                const response = await fetch(`${API_BASE}/api/users/login`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(loginData)
+                });
+                
+                const data = await response.json();
+                
+                if (data.success) {
+                    resultDiv.innerHTML = `
+                        <div class="success">
+                            <strong>✅ Login Test Passed!</strong>
+                            <pre>${JSON.stringify(data, null, 2)}</pre>
+                        </div>
+                    `;
+                } else {
+                    resultDiv.innerHTML = `
+                        <div class="error">
+                            <strong>❌ Login Test Failed!</strong>
+                            <pre>${JSON.stringify(data, null, 2)}</pre>
+                        </div>
+                    `;
+                }
+            } catch (error) {
+                resultDiv.innerHTML = `
+                    <div class="error">
+                        <strong>❌ Login Test Failed!</strong>
+                        <p>Error: ${error.message}</p>
+                        <p>Check if backend is running and database is connected</p>
+                    </div>
+                `;
+            }
+        }
+        
+        // Auto-test on page load
+        window.onload = function() {
+            testHealth();
+        };
+    </script>
+</body>
+</html>

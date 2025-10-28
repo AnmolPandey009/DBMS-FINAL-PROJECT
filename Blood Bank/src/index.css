@@ -1,0 +1,22 @@
+
+/* src/index.css */
+@import "tailwindcss";
+
+
+
+@keyframes scrollX {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(-20%); /* move left */
+  }
+  100% {
+    transform: translateX(0); /* back to start */
+  }
+}
+
+.animate-scroll {
+  display: flex;
+  animation: scrollX 15s ease-in-out infinite;
+}
