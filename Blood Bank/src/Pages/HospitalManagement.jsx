@@ -114,7 +114,7 @@ export default function HospitalManagement() {
   }
 
   return (
-    <div className="container-responsive py-12">
+    <div className="container-responsive py-12 mx-8">
       <div className="flex justify-between items-center mb-6">
         <h1 className="text-2xl font-semibold">Hospital Management</h1>
         <button 

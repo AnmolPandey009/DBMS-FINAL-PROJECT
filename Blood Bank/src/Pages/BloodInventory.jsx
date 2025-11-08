@@ -44,11 +44,21 @@ export default function BloodInventory() {
   const bloodGroups = ['A+', 'A-', 'B+', 'B-', 'AB+', 'AB-', 'O+', 'O-']
 
   // Calculate total units by blood group
+  // const inventoryByGroup = bloodGroups.map(group => {
+  //   const groupItems = inventory.filter(item => item.blood_group === group)
+  //   const totalUnits = groupItems.reduce((sum, item) => sum + item.units_available, 0)
+  //   return { group, totalUnits, items: groupItems }
+  // })
   const inventoryByGroup = bloodGroups.map(group => {
     const groupItems = inventory.filter(item => item.blood_group === group)
-    const totalUnits = groupItems.reduce((sum, item) => sum + item.units_available, 0)
+    const totalUnits = parseFloat(
+      groupItems.reduce((sum, item) => sum + parseFloat(item.units_available), 0).toFixed(2)
+    )
     return { group, totalUnits, items: groupItems }
   })
+
+
+
 
   if (loading) {
     return (
@@ -59,7 +69,7 @@ export default function BloodInventory() {
   }
 
   return (
-    <div className="container-responsive py-12">
+    <div className="container-responsive py-12 mx-8">
       <div className="flex justify-between items-center mb-6">
         <h1 className="text-2xl font-semibold">Blood Inventory</h1>
         <div className="flex gap-2">
@@ -147,8 +157,8 @@ export default function BloodInventory() {
                     </td>
                     <td className="py-2">
                       <span className={`px-2 py-1 rounded text-xs font-medium ${item.status === 'available' ? 'bg-green-100 text-green-800' :
-                          item.status === 'reserved' ? 'bg-yellow-100 text-yellow-800' :
-                            'bg-red-100 text-red-800'
+                        item.status === 'reserved' ? 'bg-yellow-100 text-yellow-800' :
+                          'bg-red-100 text-red-800'
                         }`}>
                         {item.status}
                       </span>

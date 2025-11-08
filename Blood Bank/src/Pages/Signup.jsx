@@ -63,7 +63,7 @@ export default function Signup() {
   }
 
   return (
-     <div className="container-responsive py-12">
+     <div className="container-responsive py-12 mx-8">
       <h1 className="text-2xl font-semibold mb-6">Sign Up</h1>
       {error && (
         <div className="mb-4 p-3 bg-red-100 border border-red-400 text-red-700 rounded">

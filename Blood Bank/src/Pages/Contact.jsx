@@ -1,6 +1,6 @@
 export default function Contact() {
   return (
-    <div className="container-responsive py-12">
+    <div className="container-responsive py-12 mx-8">
       <h1 className="text-2xl font-semibold mb-6">Contact Us</h1>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <form className="space-y-4">

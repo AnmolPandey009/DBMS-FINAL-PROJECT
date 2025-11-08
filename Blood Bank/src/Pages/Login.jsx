@@ -38,7 +38,7 @@ export default function Login() {
   }
 
   return (
-    <div className="container-responsive py-12 max-w-md">
+    <div className="container-responsive py-12 max-w-md mx-8">
       <h1 className="text-2xl font-semibold mb-6">Login</h1>
       
       {error && (

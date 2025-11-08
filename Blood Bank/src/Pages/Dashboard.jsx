@@ -16,7 +16,7 @@ export default function Dashboard() {
 
   // Show loading while redirecting
   return (
-    <div className="container-responsive py-12">
+    <div className="container-responsive py-12 mx-8">
       <div className="text-center">Redirecting to your dashboard...</div>
     </div>
   )

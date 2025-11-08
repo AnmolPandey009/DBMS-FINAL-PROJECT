@@ -83,7 +83,7 @@ export default function BloodRequests() {
   }
 
   return (
-    <div className="container-responsive py-12 px-10">
+    <div className="container-responsive py-12 px-10 mx-8">
       <div className="flex justify-between items-center mb-6">
         <h1 className="text-2xl font-semibold">Blood Requests</h1>
         <button 

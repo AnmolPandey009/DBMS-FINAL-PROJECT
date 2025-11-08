@@ -10,7 +10,7 @@ export default function Stock() {
     { type: 'O-', units: 4 },
   ]
   return (
-    <div className="container-responsive py-12">
+    <div className="container-responsive py-12 mx-8">
       <h1 className="text-2xl font-semibold mb-6">Blood Stock</h1>
       <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-4">
         {stock.map((s) => (

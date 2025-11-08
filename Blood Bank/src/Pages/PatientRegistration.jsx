@@ -58,7 +58,7 @@ export default function PatientRegistration() {
   }
 
   return (
-    <div className="container-responsive py-12">
+    <div className="container-responsive py-12 mx-8">
       <h1 className="text-2xl font-semibold mb-6">Patient Registration</h1>
       
       {error && (

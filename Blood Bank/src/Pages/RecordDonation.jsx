@@ -62,7 +62,7 @@ export default function RecordDonation() {
   }
 
   return (
-    <div className="container-responsive py-12 max-w-2xl">
+    <div className="container-responsive py-12 max-w-2xl mx-8">
       <div className="flex items-center justify-between mb-6">
         <h1 className="text-2xl font-semibold">Record Donation</h1>
         <button onClick={() => navigate(-1)} className="rounded-md border px-3 py-1.5 text-sm hover:bg-gray-50">Back</button>
