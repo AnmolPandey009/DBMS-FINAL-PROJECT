@@ -111,7 +111,7 @@ export default function AddInventory() {
 
         <div>
           <label className="block text-sm mb-1">Units</label>
-          <input name="units_available" type="number" min="1" value={form.units_available} onChange={onChange} className="w-full rounded-md border px-3 py-2 text-sm" required />
+          <input name="units_available" type="number" min="0.10" step = "0.01" value={form.units_available} onChange={onChange} className="w-full rounded-md border px-3 py-2 text-sm" required />
         </div>
 
         <div>
