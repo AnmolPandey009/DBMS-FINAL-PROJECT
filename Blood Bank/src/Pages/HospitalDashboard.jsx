@@ -451,9 +451,15 @@ const fetchHospitalData = async () => {
                       </div>
                     </div>
                     {donation.hemoglobin_level && (
-                      <div className="mt-2 text-sm">
-                        <span className="text-gray-600">Hemoglobin:</span>
-                        <span className="ml-2 font-medium">{donation.hemoglobin_level}</span>
+                      <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm">                
+                        <div className="mt-2 text-sm">
+                          <span className="text-gray-600">Hemoglobin:</span>
+                          <span className="ml-2 font-medium">{donation.hemoglobin_level}</span>
+                        </div>
+                        <div className="mt-2 text-sm">
+                          <span className="text-gray-600">Donor_id:</span>
+                          <span className="ml-2 font-medium">{donation.donor_id}</span>
+                        </div>
                       </div>
                     )}
                     {donation.notes && (
