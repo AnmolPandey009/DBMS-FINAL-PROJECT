@@ -379,7 +379,8 @@ const getHospitalStats = async (req, res) => {
       SELECT 
         COUNT(*) as total_requests,
         SUM(units_requested) as total_units_requested,
-        COUNT(CASE WHEN status = 'approved' THEN 1 END) as approved_requests
+        COUNT(CASE WHEN status = 'approved' THEN 1 END) as approved_requests,
+        COUNT(CASE WHEN status = 'pending' THEN 1 END) as pending_requests
       FROM blood_requests 
       WHERE hospital_id = ?
     `, [hospitalId]);

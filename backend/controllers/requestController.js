@@ -365,6 +365,8 @@ const getPendingRequests = async (req, res) => {
 
     const hospitalId = hospitalData[0].id;
 
+    // console.log("Hospital id:" + hospitalId);
+
     const [requests] = await pool.execute(`
       SELECT br.*, 
              p.first_name as patient_first_name, 

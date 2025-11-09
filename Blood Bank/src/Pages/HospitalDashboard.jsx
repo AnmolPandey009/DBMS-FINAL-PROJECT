@@ -134,7 +134,7 @@ const fetchHospitalData = async () => {
           const statsData = response.data
           setStats({
             totalRequests: statsData.requests?.total_requests || 0,
-            pendingRequests: statsData.requests?.total_requests - statsData.requests?.approved_requests || 0,
+            pendingRequests: statsData.requests?.pending_requests || 0,
             approvedRequests: statsData.requests?.approved_requests || 0,
             totalIssues: statsData.inventory?.total_units_used || 0
           })
@@ -588,7 +588,7 @@ const fetchHospitalData = async () => {
               <div><strong>Name:</strong> {hospital.hospital_name}</div>
               <div><strong>License:</strong> {hospital.license_number}</div>
               <div><strong>Address:</strong> {hospital.address}</div>
-              <div><strong>Contact:</strong> {hospital.contact}</div>
+              <div><strong>Contact:</strong> {hospital.phone}</div>
               <div><strong>Status:</strong> <span className={`ml-2 px-2 py-1 rounded text-xs font-medium ${hospital.is_approved ? 'bg-green-100 text-green-800' : 'bg-yellow-100 text-yellow-800'}`}>{hospital.is_approved ? 'Approved' : 'Pending Approval'}</span></div>
             </div>
           ) : (

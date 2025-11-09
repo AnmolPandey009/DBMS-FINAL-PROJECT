@@ -52,7 +52,8 @@ export default function HospitalManagement() {
 
       if (response.ok) {
         const hospitalData = await response.json()
-        setHospital(hospitalData)
+        // console.log(hospitalData)
+        setHospital(hospitalData?.data);
         
         // Pre-fill form with existing data
         setValue('hospitalName', hospitalData.hospital_name || '')
