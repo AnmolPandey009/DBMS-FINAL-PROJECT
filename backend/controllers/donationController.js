@@ -358,7 +358,8 @@ const getPendingDonations = async (req, res) => {
       SELECT bd.*, 
              d.first_name as donor_first_name, 
              d.last_name as donor_last_name,
-             d.blood_group as donor_blood_group
+             d.blood_group as donor_blood_group,
+             bd.donor_id as donor_id
       FROM blood_donations bd
       JOIN donors d ON bd.donor_id = d.id
       WHERE bd.hospital_id = ? AND bd.status = 'pending'
