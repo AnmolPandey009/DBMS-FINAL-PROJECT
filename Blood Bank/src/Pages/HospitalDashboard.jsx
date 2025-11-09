@@ -34,45 +34,7 @@ export default function HospitalDashboard() {
     }
   }, [user, authLoading, navigate])
 
-  // const fetchHospitalData = async () => {
-  //   try {
-  //     const token = localStorage.getItem('token')
-  //     if (!token) {
-  //       setLoading(false)
-  //       return
-  //     }
-
-  //     // Fetch hospital profile
-  //     const hospitalResponse = await fetch('http://localhost:5000/api/hospitals/profile', {
-  //       headers: { 'Authorization': `Bearer ${token}` }
-  //     })
-
-  //     if (hospitalResponse.ok) {
-  //       const hospitalData = await hospitalResponse.json()
-  //       // Handle both direct object and array responses
-  //       if (Array.isArray(hospitalData) && hospitalData.length > 0) {
-  //         setHospital(hospitalData[0])
-  //       } else if (hospitalData.hospital_id) {
-  //         setHospital(hospitalData)
-  //       }
-  //     }
-
-  //     // Fetch dashboard stats
-  //     const statsResponse = await fetch('http://localhost:5000/api/hospitals/dashboard-stats', {
-  //       headers: { 'Authorization': `Bearer ${token}` }
-  //     })
-
-  //     if (statsResponse.ok) {
-  //       const statsData = await statsResponse.json()
-  //       setStats(statsData)
-  //     }
-  //   } catch (error) {
-  //     console.error('Error fetching hospital data:', error)
-  //   } finally {
-  //     setLoading(false)
-  //   }
-  // }
-
+  
 const fetchHospitalData = async () => {
   try {
     const token = localStorage.getItem('token')
@@ -386,7 +348,7 @@ const fetchHospitalData = async () => {
   }
 
   return (
-    <div className="container-responsive py-12">
+    <div className="container-responsive py-12 mx-8">
       <div className="flex justify-between items-center mb-6">
         <div>
           <h1 className="text-2xl font-semibold">Hospital Dashboard</h1>

@@ -1,6 +1,6 @@
 const { pool } = require('../config/database');
 
-// Get all inventory
+// Get all inventory 
 const getAllInventory = async (req, res) => {
   try {
     const [inventory] = await pool.execute(`

@@ -10,21 +10,6 @@ export default function DonorDashboard() {
   const [loading, setLoading] = useState(true)
   const navigate = useNavigate()
 
-  // useEffect(() => {
-  //   if (user?.role !== 'donor') {
-  //     navigate('/dashboard')
-  //     return
-  //   }
-  //   fetchDonorData()
-  // }, [user, navigate])
-  // useEffect(() => {
-  //   console.log('Current user:', user)
-  //   if (user?.role !== 'donor') {
-  //     navigate('/dashboard')
-  //     return
-  //   }
-  //   fetchDonorData()
-  // }, [user, navigate])
   useEffect(() => {
     if (user === undefined) {
       // Your auth may be loading user info asynchronously
@@ -41,29 +26,6 @@ export default function DonorDashboard() {
     }
   }, [user, navigate])
 
-
-
-  // const fetchDonorData = async () => {
-  //   try {
-  //     setLoading(true)
-
-  //     // Fetch donor profile
-  //     const donorResponse = await apiService.getDonorProfile()
-  //     if (donorResponse) {
-  //       setDonor(donorResponse)
-  //     }
-
-  //     // Fetch donation history
-  //     const donationsResponse = await apiService.getDonationsByDonor(donorResponse?.donor_id)
-  //     if (donationsResponse) {
-  //       setDonations(donationsResponse)
-  //     }
-  //   } catch (error) {
-  //     console.error('Error fetching donor data:', error)
-  //   } finally {
-  //     setLoading(false)
-  //   }
-  // }
   const fetchDonorData = async () => {
     try {
       setLoading(true)

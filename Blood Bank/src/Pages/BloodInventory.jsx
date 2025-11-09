@@ -43,12 +43,6 @@ export default function BloodInventory() {
 
   const bloodGroups = ['A+', 'A-', 'B+', 'B-', 'AB+', 'AB-', 'O+', 'O-']
 
-  // Calculate total units by blood group
-  // const inventoryByGroup = bloodGroups.map(group => {
-  //   const groupItems = inventory.filter(item => item.blood_group === group)
-  //   const totalUnits = groupItems.reduce((sum, item) => sum + item.units_available, 0)
-  //   return { group, totalUnits, items: groupItems }
-  // })
   const inventoryByGroup = bloodGroups.map(group => {
     const groupItems = inventory.filter(item => item.blood_group === group)
     const totalUnits = parseFloat(

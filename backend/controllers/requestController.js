@@ -1,6 +1,6 @@
 const { pool } = require('../config/database');
 
-// Get all requests
+// Get all requests 
 const getAllRequests = async (req, res) => {
   try {
     const [requests] = await pool.execute(`

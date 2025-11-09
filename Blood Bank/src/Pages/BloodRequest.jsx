@@ -60,56 +60,6 @@ export default function BloodRequest() {
     }
   }
 
-  // const onSubmit = async (data) => {
-  //   try {
-  //     setError('')
-  //     setSuccess('')
-
-  //     const token = localStorage.getItem('token')
-  //     const response = await fetch('http://localhost:5000/api/requests', {
-  //       method: 'POST',
-  //       headers: {
-  //         'Content-Type': 'application/json',
-  //         'Authorization': `Bearer ${token}`,
-  //       },
-  //       body: JSON.stringify({
-  //         patient_id: user.user_id,
-  //         patient_name: user.name,
-  //         blood_group: data.bloodGroup,
-  //         component_type: 'Whole Blood', // Default to whole blood
-  //         units_requested: data.unitsRequired,
-  //         urgency: data.urgency,
-  //         hospital_id: null, // Will be handled by hospital name lookup if needed
-  //         request_date: new Date().toISOString().split('T')[0],
-  //         required_by_date: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000).toISOString().split('T')[0], // 7 days from now
-  //         notes: data.notes || '',
-  //       }),
-  //     })
-
-  //     console.log(response);
-
-  //     if (response.ok) {
-  //       setSuccess('Blood request submitted successfully!')
-  //       reset()
-  //       setTimeout(() => {
-  //         const userRole = user?.role?.toLowerCase()
-  //         if (userRole === 'patient') {
-  //           navigate('/patient-dashboard')
-  //         } else if (userRole === 'hospital') {
-  //           navigate('/hospital-dashboard')
-  //         } else {
-  //           navigate('/dashboard')
-  //         }
-  //       }, 2000)
-  //     } else {
-  //       const errorData = await response.json()
-  //       setError(errorData.message || 'Request submission failed')
-  //     }
-  //   } catch (err) {
-  //     setError('Network error. Please try again.')
-  //   }
-  // }
-
   const onSubmit = async (data) => {
     try {
       setError('')

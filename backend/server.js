@@ -15,7 +15,6 @@ const donationRoutes = require('./routes/donations');
 const inventoryRoutes = require('./routes/inventory');
 const requestRoutes = require('./routes/requests');
 const issueRoutes = require('./routes/issues');
-const adminRoutes = require('./routes/admin');
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -65,7 +64,6 @@ app.use('/api/donations', donationRoutes);
 app.use('/api/inventory', inventoryRoutes);
 app.use('/api/requests', requestRoutes);
 app.use('/api/issues', issueRoutes);
-app.use('/api/admin', adminRoutes);
 
 // 404 handler
 app.use('*', (req, res) => {

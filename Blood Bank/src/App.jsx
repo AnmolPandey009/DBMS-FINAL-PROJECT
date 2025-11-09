@@ -16,7 +16,6 @@ import Dashboard from './Pages/Dashboard.jsx'
 import DonorDashboard from './Pages/DonorDashboard.jsx'
 import PatientDashboard from './Pages/PatientDashboard.jsx'
 import HospitalDashboard from './Pages/HospitalDashboard.jsx'
-import AdminDashboard from './Pages/AdminDashboard.jsx'
 import DonorRegistration from './Pages/DonorRegistation.jsx'
 import PatientRegistration from './Pages/PatientRegistration.jsx'
 import BloodRequest from './Pages/BloodRequest.jsx'
@@ -26,7 +25,6 @@ import HospitalManagement from './Pages/HospitalManagement.jsx'
 import AddInventory from './Pages/AddInventory.jsx'
 import RecordDonation from './Pages/RecordDonation.jsx'
 import DonorBloodDonation from './Pages/DonorBloodDonation.jsx'
-import AdminPanel from './components/AdminPanel'
 import ProfileEditForm from './Pages/ProfileEditForm.jsx'
 
 function App() {
@@ -73,11 +71,6 @@ function App() {
               </ProtectedRoute>
             } />
             
-            <Route path="/admin-dashboard" element={
-              <ProtectedRoute requiredRole="admin">
-                <AdminDashboard />
-              </ProtectedRoute>
-            } />
             
             <Route path="/donor-registration" element={
               <ProtectedRoute>
@@ -130,12 +123,6 @@ function App() {
             <Route path="/donor-blood-donation" element={
               <ProtectedRoute requiredRole="donor">
                 <DonorBloodDonation />
-              </ProtectedRoute>
-            } />
-            
-            <Route path="/admin-panel" element={
-              <ProtectedRoute requiredRole="admin">
-                <AdminPanel />
               </ProtectedRoute>
             } />
             

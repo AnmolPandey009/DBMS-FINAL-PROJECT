@@ -40,12 +40,7 @@ export default function PatientDashboard() {
         if(data?.data?.overall){
           setRequests(data);
         }
-        
-        // if (Array.isArray(data)) {
-        //   setRequests(data)
-        // } else if (data.requests && Array.isArray(data.requests)) {
-        //   setRequests(data.requests) // Extract array from object
-        // } 
+         
         else {
           console.warn('Unexpected data format:', data)
           setRequests([])
@@ -68,7 +63,7 @@ export default function PatientDashboard() {
 
   if (loading) {
     return (
-      <div className="container-responsive py-12">
+      <div className="container-responsive py-12 mx-8">
         <div className="text-center">Loading...</div>
       </div>
     )
